@@ -6,7 +6,7 @@
   <link href="/Quixn.github.io/atom.xml" rel="self"/>
   
   <link href="https://quixn.github.io/"/>
-  <updated>2020-05-26T19:02:27.743Z</updated>
+  <updated>2020-05-27T07:22:55.512Z</updated>
   <id>https://quixn.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://quixn.github.io/2020/04/22/qian-duan-bi-ji-css-gui-fan-zui-jia-shi-jian/"/>
     <id>https://quixn.github.io/2020/04/22/qian-duan-bi-ji-css-gui-fan-zui-jia-shi-jian/</id>
     <published>2020-04-22T09:00:00.000Z</published>
-    <updated>2020-05-26T19:02:27.743Z</updated>
+    <updated>2020-05-27T07:22:55.512Z</updated>
     
     <summary type="html">
     
@@ -40,7 +40,11 @@
       <category term="前端开发" scheme="https://Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端开发 - HTML - CSS" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-HTML-CSS/"/>
+      <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
     
   </entry>
   
