@@ -6,7 +6,7 @@
   <link href="/Quixn.github.io/atom.xml" rel="self"/>
   
   <link href="https://quixn.github.io/"/>
-  <updated>2020-05-27T07:22:55.512Z</updated>
+  <updated>2021-03-08T07:22:13.016Z</updated>
   <id>https://quixn.github.io/</id>
   
   <author>
@@ -17,11 +17,133 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数组的常见方法</title>
+    <link href="https://quixn.github.io/2020/06/01/shu-zu-de-chang-jian-fang-fa/"/>
+    <id>https://quixn.github.io/2020/06/01/shu-zu-de-chang-jian-fang-fa/</id>
+    <published>2020-06-01T09:00:00.000Z</published>
+    <updated>2021-03-08T07:22:13.016Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;数组的方法清单&quot;&gt;&lt;a href=&quot;#数组的方法清单&quot; class=&quot;headerlink&quot; title=&quot;数组的方法清单&quot;&gt;&lt;/a&gt;数组的方法清单&lt;/h2&gt;&lt;h3 id=&quot;数组的类型相关&quot;&gt;&lt;a href=&quot;#数组的类型相关&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="JavaScript" scheme="https://Quixn.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5详解（三）</title>
+    <link href="https://quixn.github.io/2020/05/22/html5-xiang-jie-san/"/>
+    <id>https://quixn.github.io/2020/05/22/html5-xiang-jie-san/</id>
+    <published>2020-05-22T09:00:00.000Z</published>
+    <updated>2021-03-08T06:56:18.523Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Web-存储&quot;&gt;&lt;a href=&quot;#Web-存储&quot; class=&quot;headerlink&quot; title=&quot;Web 存储&quot;&gt;&lt;/a&gt;Web
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5详解（二）</title>
+    <link href="https://quixn.github.io/2020/05/21/html5-xiang-jie-er/"/>
+    <id>https://quixn.github.io/2020/05/21/html5-xiang-jie-er/</id>
+    <published>2020-05-21T09:00:00.000Z</published>
+    <updated>2021-03-08T06:56:27.381Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;本文主要内容&quot;&gt;&lt;a href=&quot;#本文主要内容&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5详解</title>
+    <link href="https://quixn.github.io/2020/05/20/html5-xiang-jie/"/>
+    <id>https://quixn.github.io/2020/05/20/html5-xiang-jie/</id>
+    <published>2020-05-20T09:00:00.000Z</published>
+    <updated>2021-03-08T06:45:16.113Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;HTML5的介绍&quot;&gt;&lt;a href=&quot;#HTML5的介绍&quot; class=&quot;headerlink&quot; title=&quot;HTML5的介绍&quot;&gt;&lt;/a&gt;HTML5的介绍&lt;/h2&gt;&lt;h3 id=&quot;Web-技术发展时间线&quot;&gt;&lt;a href=&quot;#Web-技术发展时间线&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端笔记 CSS规范 – 最佳实践</title>
     <link href="https://quixn.github.io/2020/04/22/qian-duan-bi-ji-css-gui-fan-zui-jia-shi-jian/"/>
     <id>https://quixn.github.io/2020/04/22/qian-duan-bi-ji-css-gui-fan-zui-jia-shi-jian/</id>
     <published>2020-04-22T09:00:00.000Z</published>
-    <updated>2020-05-27T07:22:55.512Z</updated>
+    <updated>2021-03-08T06:44:42.615Z</updated>
     
     <summary type="html">
     
@@ -42,9 +164,9 @@
     
       <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
-      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
+    
+      <category term="HTML5" scheme="https://Quixn.github.io/tags/HTML5/"/>
     
   </entry>
   
