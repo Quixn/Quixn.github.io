@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="404, Quixn，github">
+    <meta name="keywords" content="call、apply 和 bind, Quixn，github">
     <meta name="description" content="月傍星，星伴月，繁星闪闪，月痴迷；花醉蝶，蝶恋花，蝶舞翩翩，花嫣然。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>404 | Quixn</title>
+    <title>call、apply 和 bind | Quixn</title>
     <link rel="icon" type="image/png" href="/Quixn.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/Quixn.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">404</h1>
+                    <h1 class="description center-align post-title">call、apply 和 bind</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                                <span class="chip bg-color">前端开发</span>
+                            </a>
+                        
+                            <a href="/Quixn.github.io/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                前端开发
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -451,7 +468,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2017-07-19
+                    2020-05-24
                 </div>
                 
 
@@ -460,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -482,7 +499,108 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JS 专门为我们提供了一些方法来改变函数内部的 this 指向。常见的方法有 call()、apply()、bind() 方法。</p>
+<h2 id="call-方法"><a href="#call-方法" class="headerlink" title="call() 方法"></a>call() 方法</h2><h3 id="call-方法的作用"><a href="#call-方法的作用" class="headerlink" title="call() 方法的作用"></a>call() 方法的作用</h3><p>call() 方法的作用：可以<strong>调用</strong>一个函数，与此同时，它还可以改变这个函数内部的 this 指向。</p>
+<p>call() 方法的另一个应用：<strong>可以实现继承</strong>。之所以能实现继承，其实是利用了上面的作用。</p>
+<p>语法：</p>
+<pre class=" language-js"><code class="language-js">fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>想要将<span class="token keyword">this</span>指向哪里<span class="token punctuation">,</span> 函数实参<span class="token number">1</span><span class="token punctuation">,</span> 函数实参<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>备注：第一个参数中，如果不需要改变 this 指向，则传 null。</p>
+<h3 id="call-方法举例"><a href="#call-方法举例" class="headerlink" title="call() 方法举例"></a>call() 方法举例</h3><p><strong>举例 1</strong>、通过 call() 调用函数：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    nickName<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// this的指向并没有被改变，此时相当于 fn1();</span></code></pre>
+<p>上方代码的打印结果：</p>
+<pre><code>window
+undefined</code></pre><p>上面的代码，跟普通的函数调用 <code>fn1()</code> 没有区别。</p>
+<p><strong>举例 2</strong>、通过 call() 改变 this 指向：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    nickName<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj1<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 先将 this 指向 obj1，然后执行 fn1() 函数</span></code></pre>
+<p>上方代码的打印结果：</p>
+<pre><code>obj1
+qianguyihao
+6</code></pre><p><strong>举例 3</strong>、通过 call() 实现继承：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 给 Father 增加 name 和 age 属性</span>
+<span class="token keyword">function</span> <span class="token function">Father</span><span class="token punctuation">(</span>myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> myName<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> myAge<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Son</span><span class="token punctuation">(</span>myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 【下面这一行，重要代码】</span>
+    <span class="token comment" spellcheck="true">// 通过这一步，将 father 里面的 this 修改为 Son 里面的 this；另外，给 Son 加上相应的参数，让 Son 自动拥有 Father 里的属性。最终实现继承</span>
+    Father<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> son1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Son</span><span class="token punctuation">(</span><span class="token string">'千古壹号'</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>son1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>上方代码中，通过 call() 方法，让 Son 继承了 Father 里面的 name 和 age 属性。</p>
+<p>打印结果：</p>
+<pre><code>{&quot;myName&quot;:&quot;千古壹号&quot;,&quot;myAge&quot;:28}</code></pre><h2 id="apply-方法"><a href="#apply-方法" class="headerlink" title="apply() 方法"></a>apply() 方法</h2><h3 id="apply-方法的作用"><a href="#apply-方法的作用" class="headerlink" title="apply() 方法的作用"></a>apply() 方法的作用</h3><p>apply() 方法的作用：可以<strong>调用</strong>一个函数，与此同时，它还可以改变这个函数内部的 this 指向。这一点，和 call()类似。</p>
+<p>apply() 方法的应用： 由于 apply()需要传递数组，所以它有一些巧妙应用，稍后看接下来的应用举例就知道了。</p>
+<p>语法：</p>
+<pre class=" language-js"><code class="language-js">fn1<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>想要将<span class="token keyword">this</span>指向哪里<span class="token punctuation">,</span> <span class="token punctuation">[</span>函数实参<span class="token number">1</span><span class="token punctuation">,</span> 函数实参<span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>备注：第一个参数中，如果不需要改变 this 指向，则传 null。</p>
+<p>到这里可以看出， call() 和 apply() 方法的作用是相同的。唯一的区别在于，apply() 里面传入的<strong>实参，必须是数组（或者维数组）</strong>。</p>
+<h3 id="apply-方法举例"><a href="#apply-方法举例" class="headerlink" title="apply() 方法举例"></a>apply() 方法举例</h3><p><strong>举例</strong>、通过 apply() 改变 this 指向：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    nickName<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+fn1<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>obj1<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 先将 this 指向 obj1，然后执行 fn1() 函数</span></code></pre>
+<p>注意，上方代码中，call() 里面传实参时，需要以数组的形式。即便是传一个实参，也需要传数组。</p>
+<p>打印结果：</p>
+<pre><code>obj1
+qianguyihao
+hello</code></pre><h3 id="apply-方法的巧妙应用：求数组的最大值"><a href="#apply-方法的巧妙应用：求数组的最大值" class="headerlink" title="apply() 方法的巧妙应用：求数组的最大值"></a>apply() 方法的巧妙应用：求数组的最大值</h3><p>我们知道，如果想要求数组中元素的最大值的时候，数组本身是没有自带方法的。那怎么办呢？</p>
+<p>虽然数组里没有获取最大值的方法，但是数值里面有 <code>Math.max(数字1，数字2，数字3)</code> 方法，可以获取<strong>多个数值中的最大值</strong>。 另外，由于 apply() 方法在传递实参时，必须要以数组的形式，所以我们可以 通过 Math.max() 和 apply() 曲线救国。</p>
+<p><strong>举例</strong>：求数组中多个元素的最大值：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 下面这一行代码的目的，无需改变 this 指向，所以：第一个参数填 null，或者填 Math，或者填 this 都可以。严格模式中，不让填null。</span>
+<span class="token keyword">const</span> maxValue <span class="token operator">=</span> Math<span class="token punctuation">.</span>max<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>Math<span class="token punctuation">,</span> arr1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 求数组 arr1 中元素的最大值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>maxValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> minValue <span class="token operator">=</span> Math<span class="token punctuation">.</span>min<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>Math<span class="token punctuation">,</span> arr1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 求数组 arr1 中元素的最小值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>minValue<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>打印结果：</p>
+<pre><code>10
+
+3</code></pre><h2 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind() 方法"></a>bind() 方法</h2><h3 id="bind-方法的作用"><a href="#bind-方法的作用" class="headerlink" title="bind() 方法的作用"></a>bind() 方法的作用</h3><p>bind() 方法<strong>不会调用函数</strong>，但是可以改变函数内部的 this 指向。</p>
+<p>把call()、apply()、bind()这三个方法做一下对比，你会发现：实际开发中， bind() 方法使用得最为频繁。如果有些函数，我们不需要立即调用，但是又想改变这个函数内部的this指向，此时用 bind() 是最为合适的。</p>
+<p>语法：</p>
+<pre class=" language-js"><code class="language-js">新函数 <span class="token operator">=</span> fn1<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>想要将<span class="token keyword">this</span>指向哪里<span class="token punctuation">,</span> 函数实参<span class="token number">1</span><span class="token punctuation">,</span> 函数实参<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>参数：</p>
+<ul>
+<li><p>第一个参数：在 fn1 函数运行时，指定 fn1 函数的this 指向。如果不需要改变 this 指向，则传 null。</p>
+</li>
+<li><p>其他参数：fn1 函数的实参。</p>
+</li>
+</ul>
+<p>解释：它不会调用 fn1 函数，但会返回 由指定this 和指定实参的<strong>原函数拷贝</strong>。可以看出， bind() 方法是有返回值的。</p>
+
             </div>
             <hr/>
 
@@ -507,7 +625,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://Quixn.github.io/Quixn.github.io/404.html">https://Quixn.github.io/Quixn.github.io/404.html</a>
+                    <a href="https://Quixn.github.io/Quixn.github.io/2020/05/24/6-2020-05-24-call-apply-he-bind/">https://Quixn.github.io/Quixn.github.io/2020/05/24/6-2020-05-24-call-apply-he-bind/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -544,7 +662,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                                    <span class="chip bg-color">前端开发</span>
+                                </a>
+                            
+                                <a href="/Quixn.github.io/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -973,39 +1099,55 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Quixn.github.io/404.html">
+                <a href="/Quixn.github.io/2020/05/25/7-2020-05-25-gao-jie-han-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="404">
+                        <img src="/Quixn.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="高阶函数">
                         
-                        <span class="card-title">404</span>
+                        <span class="card-title">高阶函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            高阶函数高阶函数的概念当 函数 A 接收函数 B 作为参数，或者把函数 C 作为返回值输出时，我们称 函数 A 为高阶函数。
+通俗来说，高阶函数是 对其他函数进行操作 的函数。
+高阶函数举例1：把其他函数作为参数function fn1(a
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Quixn
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                    前端开发
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">前端开发</span>
+                    </a>
+                    
+                    <a href="/Quixn.github.io/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1013,37 +1155,56 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Quixn.github.io/404.html">
+                <a href="/Quixn.github.io/2020/05/22/5-2020-05-22-html5-xiang-jie-san/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="404">
+                        <img src="/Quixn.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="HTML5详解（三）">
                         
-                        <span class="card-title">404</span>
+                        <span class="card-title">HTML5详解（三）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Web 存储随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，传统方式我们以document.cookie来进行存储的，但是由于其存储大小只有4k左右，并且解析也相当
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Quixn
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                    前端开发
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">前端开发</span>
+                    </a>
+                    
+                    <a href="/Quixn.github.io/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/Quixn.github.io/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

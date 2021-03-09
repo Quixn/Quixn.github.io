@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="404, Quixn，github">
+    <meta name="keywords" content="前端笔记 CSS规范 – 最佳实践, Quixn，github">
     <meta name="description" content="月傍星，星伴月，繁星闪闪，月痴迷；花醉蝶，蝶恋花，蝶舞翩翩，花嫣然。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>404 | Quixn</title>
+    <title>前端笔记 CSS规范 – 最佳实践 | Quixn</title>
     <link rel="icon" type="image/png" href="/Quixn.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/Quixn.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">404</h1>
+                    <h1 class="description center-align post-title">前端笔记 CSS规范 – 最佳实践</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                                <span class="chip bg-color">前端开发</span>
+                            </a>
+                        
+                            <a href="/Quixn.github.io/tags/HTML5/">
+                                <span class="chip bg-color">HTML5</span>
+                            </a>
+                        
+                            <a href="/Quixn.github.io/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                前端开发
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -451,7 +472,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2017-07-19
+                    2020-04-22
                 </div>
                 
 
@@ -460,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    569
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -482,7 +503,371 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="最佳选择器写法（模块）"><a href="#最佳选择器写法（模块）" class="headerlink" title="最佳选择器写法（模块）"></a>最佳选择器写法（模块）</h2><pre><code>/* 这是某个模块 */ 
+.m-nav{} /* 模块容器 */
+.m-nav li,.m-nav a{} /* 先共性  优化组合 */
+.m-nav li{} /* 后个性  语义化标签选择器 */
+.m-nav a{} /* 后个性中的共性 按结构顺序 */
+.m-nav a.a1{} /* 后个性中的个性 */
+.m-nav a.a2{} /* 后个性中的个性 */
+.m-nav .z-crt a{} /* 交互状态变化 */
+.m-nav .z-crt a.a1{}
+.m-nav .z-crt a.a2{}
+.m-nav .btn{} /* 典型后代选择器 */
+.m-nav .btn-1{} /* 典型后代选择器扩展 */
+.m-nav .btn-dis{} /* 典型后代选择器扩展（状态） */
+.m-nav .btn.z-dis{} /* 作用同上，请二选一（如果可以不兼容IE6时使用） */
+.m-nav .m-sch{} /* 控制内部其他模块位置 */
+.m-nav .u-sel{} /* 控制内部其他元件位置 */
+.m-nav-1{} /* 模块扩展 */
+.m-nav-1 li{}
+.m-nav-dis{} /* 模块扩展（状态） */
+.m-nav.z-dis{} /* 作用同上，请二选一（如果可以不兼容IE6时使用） */</code></pre><h2 id="统一语义理解和命名"><a href="#统一语义理解和命名" class="headerlink" title="统一语义理解和命名"></a>统一语义理解和命名</h2><table>
+<thead>
+<tr>
+<th>语义</th>
+<th align="center">命名</th>
+<th align="center">简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文档</td>
+<td align="center">doc</td>
+<td align="center">doc</td>
+</tr>
+<tr>
+<td>头部</td>
+<td align="center">head</td>
+<td align="center">hd</td>
+</tr>
+<tr>
+<td>主体</td>
+<td align="center">body</td>
+<td align="center">bd</td>
+</tr>
+<tr>
+<td>尾部</td>
+<td align="center">foot</td>
+<td align="center">ft</td>
+</tr>
+<tr>
+<td>主栏</td>
+<td align="center">main</td>
+<td align="center">mn</td>
+</tr>
+<tr>
+<td>主栏子容器</td>
+<td align="center">mainc</td>
+<td align="center">mnc</td>
+</tr>
+<tr>
+<td>侧栏</td>
+<td align="center">side</td>
+<td align="center">sd</td>
+</tr>
+<tr>
+<td>侧栏子容器</td>
+<td align="center">sidec</td>
+<td align="center">sdc</td>
+</tr>
+<tr>
+<td>盒容器</td>
+<td align="center">wrap/box</td>
+<td align="center">wrap/box</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th align="center">命名</th>
+<th align="center">简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>导航</td>
+<td align="center">nav</td>
+<td align="center">nav</td>
+</tr>
+<tr>
+<td>子导航</td>
+<td align="center">subnav</td>
+<td align="center">snav</td>
+</tr>
+<tr>
+<td>面包屑</td>
+<td align="center">crumb</td>
+<td align="center">crm</td>
+</tr>
+<tr>
+<td>菜单</td>
+<td align="center">menu</td>
+<td align="center">menu</td>
+</tr>
+<tr>
+<td>选项卡</td>
+<td align="center">tab</td>
+<td align="center">tab</td>
+</tr>
+<tr>
+<td>标题区</td>
+<td align="center">head/title</td>
+<td align="center">hd/tt</td>
+</tr>
+<tr>
+<td>内容区</td>
+<td align="center">body/content</td>
+<td align="center">bd/ct</td>
+</tr>
+<tr>
+<td>列表</td>
+<td align="center">list</td>
+<td align="center">lst</td>
+</tr>
+<tr>
+<td>表格</td>
+<td align="center">table</td>
+<td align="center">tb</td>
+</tr>
+<tr>
+<td>表单</td>
+<td align="center">form</td>
+<td align="center">fm</td>
+</tr>
+<tr>
+<td>热点</td>
+<td align="center">hot</td>
+<td align="center">hot</td>
+</tr>
+<tr>
+<td>排行</td>
+<td align="center">top</td>
+<td align="center">top</td>
+</tr>
+<tr>
+<td>登录</td>
+<td align="center">login</td>
+<td align="center">log</td>
+</tr>
+<tr>
+<td>标志</td>
+<td align="center">logo</td>
+<td align="center">logo</td>
+</tr>
+<tr>
+<td>广告</td>
+<td align="center">advertise</td>
+<td align="center">ad</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td align="center">search</td>
+<td align="center">sch</td>
+</tr>
+<tr>
+<td>幻灯</td>
+<td align="center">slide</td>
+<td align="center">sld</td>
+</tr>
+<tr>
+<td>提示</td>
+<td align="center">help</td>
+<td align="center">help</td>
+</tr>
+<tr>
+<td>新闻</td>
+<td align="center">news</td>
+<td align="center">news</td>
+</tr>
+<tr>
+<td>下载</td>
+<td align="center">download</td>
+<td align="center">dld</td>
+</tr>
+<tr>
+<td>注册</td>
+<td align="center">regist</td>
+<td align="center">reg</td>
+</tr>
+<tr>
+<td>投票</td>
+<td align="center">vote</td>
+<td align="center">vote</td>
+</tr>
+<tr>
+<td>版权</td>
+<td align="center">copyright</td>
+<td align="center">cprt</td>
+</tr>
+<tr>
+<td>结果</td>
+<td align="center">result</td>
+<td align="center">rst</td>
+</tr>
+<tr>
+<td>标题</td>
+<td align="center">title</td>
+<td align="center">tt</td>
+</tr>
+<tr>
+<td>按钮</td>
+<td align="center">button</td>
+<td align="center">btn</td>
+</tr>
+<tr>
+<td>输入</td>
+<td align="center">input</td>
+<td align="center">ipt</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th align="center">命名</th>
+<th align="center">简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>浮动清除</td>
+<td align="center">clearboth</td>
+<td align="center">cb</td>
+</tr>
+<tr>
+<td>向左浮动</td>
+<td align="center">floatleft</td>
+<td align="center">fl</td>
+</tr>
+<tr>
+<td>向右浮动</td>
+<td align="center">floatright</td>
+<td align="center">fr</td>
+</tr>
+<tr>
+<td>内联块级</td>
+<td align="center">inlineblock</td>
+<td align="center">ib</td>
+</tr>
+<tr>
+<td>内联块级</td>
+<td align="center">textaligncenter</td>
+<td align="center">tac</td>
+</tr>
+<tr>
+<td>文本居右</td>
+<td align="center">textalignright</td>
+<td align="center">tar</td>
+</tr>
+<tr>
+<td>文本居左</td>
+<td align="center">overflowhidden</td>
+<td align="center">oh</td>
+</tr>
+<tr>
+<td>完全消失</td>
+<td align="center">displaynone</td>
+<td align="center">dn</td>
+</tr>
+<tr>
+<td>字体大小</td>
+<td align="center">fontsize</td>
+<td align="center">fs</td>
+</tr>
+<tr>
+<td>字体粗细</td>
+<td align="center">fontweight</td>
+<td align="center">fw</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th align="center">命名</th>
+<th align="center">简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字体颜色</td>
+<td align="center">fontcolor</td>
+<td align="center">fc</td>
+</tr>
+<tr>
+<td>背景</td>
+<td align="center">background</td>
+<td align="center">bg</td>
+</tr>
+<tr>
+<td>背景颜色</td>
+<td align="center">backgroundcolor</td>
+<td align="center">bgc</td>
+</tr>
+<tr>
+<td>背景图片</td>
+<td align="center">backgroundimage</td>
+<td align="center">bgi</td>
+</tr>
+<tr>
+<td>背景定位</td>
+<td align="center">backgroundposition</td>
+<td align="center">bgp</td>
+</tr>
+<tr>
+<td>边框颜色</td>
+<td align="center">bordercolor</td>
+<td align="center">bdc</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th align="center">命名</th>
+<th align="center">简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选中</td>
+<td align="center">selected</td>
+<td align="center">sel</td>
+</tr>
+<tr>
+<td>当前</td>
+<td align="center">current</td>
+<td align="center">crt</td>
+</tr>
+<tr>
+<td>显示</td>
+<td align="center">show</td>
+<td align="center">show</td>
+</tr>
+<tr>
+<td>隐藏</td>
+<td align="center">hide</td>
+<td align="center">hide</td>
+</tr>
+<tr>
+<td>打开</td>
+<td align="center">open</td>
+<td align="center">open</td>
+</tr>
+<tr>
+<td>关闭</td>
+<td align="center">close</td>
+<td align="center">close</td>
+</tr>
+<tr>
+<td>出错</td>
+<td align="center">error</td>
+<td align="center">err</td>
+</tr>
+<tr>
+<td>不可用</td>
+<td align="center">disabled</td>
+<td align="center">dis</td>
+</tr>
+</tbody></table>
+
             </div>
             <hr/>
 
@@ -507,7 +892,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://Quixn.github.io/Quixn.github.io/404.html">https://Quixn.github.io/Quixn.github.io/404.html</a>
+                    <a href="https://Quixn.github.io/Quixn.github.io/2020/04/22/2-2020-04-22-qian-duan-bi-ji-css-gui-fan-zui-jia-shi-jian/">https://Quixn.github.io/Quixn.github.io/2020/04/22/2-2020-04-22-qian-duan-bi-ji-css-gui-fan-zui-jia-shi-jian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -544,7 +929,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                                    <span class="chip bg-color">前端开发</span>
+                                </a>
+                            
+                                <a href="/Quixn.github.io/tags/HTML5/">
+                                    <span class="chip bg-color">HTML5</span>
+                                </a>
+                            
+                                <a href="/Quixn.github.io/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -973,39 +1370,71 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Quixn.github.io/404.html">
+                <a href="/Quixn.github.io/2020/05/20/3-2020-05-20-html5-xiang-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="404">
+                        <img src="/Quixn.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="HTML5详解">
                         
-                        <span class="card-title">404</span>
+                        <span class="card-title">HTML5详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            HTML5的介绍Web 技术发展时间线
+1991 HTML
+
+
+1994 HTML2
+
+1996 CSS1 + JavaScript
+
+1997 HTML4
+
+1998 CSS2
+
+2000 XHTML1（严格的html）
+
+2002 Ta
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-20
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Quixn
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                    前端开发
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">前端开发</span>
+                    </a>
+                    
+                    <a href="/Quixn.github.io/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/Quixn.github.io/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1013,27 +1442,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Quixn.github.io/404.html">
+                <a href="/Quixn.github.io/2020/04/21/1-2020-04-21-hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="404">
+                        <img src="/Quixn.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">404</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-21
                             </span>
                         <span class="publish-author">
                             
@@ -1043,7 +1472,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
