@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="404, Quixn，github">
+    <meta name="keywords" content="闭包, Quixn，github">
     <meta name="description" content="月傍星，星伴月，繁星闪闪，月痴迷；花醉蝶，蝶恋花，蝶舞翩翩，花嫣然。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>404 | Quixn</title>
+    <title>闭包 | Quixn</title>
     <link rel="icon" type="image/png" href="/Quixn.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/Quixn.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">404</h1>
+                    <h1 class="description center-align post-title">闭包</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                                <span class="chip bg-color">前端开发</span>
+                            </a>
+                        
+                            <a href="/Quixn.github.io/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                前端开发
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -451,7 +468,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2017-07-19
+                    2020-06-02
                 </div>
                 
 
@@ -460,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    869
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -482,7 +499,71 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="闭包的引入"><a href="#闭包的引入" class="headerlink" title="闭包的引入"></a>闭包的引入</h2><p>我们知道，变量根据作用域的不同分为两种：全局变量和局部变量。</p>
+<ul>
+<li><p>函数内部可以访问全局变量和局部变量。</p>
+</li>
+<li><p>函数外部只能访问全局变量，不能访问局部变量。</p>
+</li>
+<li><p>当函数执行完毕，本作用域内的局部变量会销毁。</p>
+</li>
+</ul>
+<p>比如下面这样的代码：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 打印报错：Uncaught ReferenceError: a is not defined</span></code></pre>
+<p>上方代码中，由于变量 <code>a</code> 是函数内的局部变量，所以外部无法访问。</p>
+<p>但是，在有些场景下，我们就是想要在函数外部访问函数内的局部变量，那要怎么办呢？这就需要引入闭包的概念。</p>
+<h2 id="闭包的概念和代码举例"><a href="#闭包的概念和代码举例" class="headerlink" title="闭包的概念和代码举例"></a>闭包的概念和代码举例</h2><h3 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h3><p><strong>闭包</strong>（closure）：指有权<strong>访问</strong>另一个函数作用域中<strong>变量</strong>的<strong>函数</strong>。</p>
+<p>上面这个概念，出自《JavaScript 高级程序设计（第 3 版）》这本书。上面的概念中指出，闭包是一种函数；当然，你可以<strong>把闭包理解成是一种现象</strong>。具体解释如下。</p>
+<p>简单理解就是：如果<strong>这个作用域可以访问另外一个函数内部的局部变量</strong>，那就产生了闭包（此时，你可以把闭包理解成是一种现象）；而另外那个作用域所在的函数称之为<strong>闭包函数</strong>。注意，这里强调的是访问<strong>局部变量</strong>哦。</p>
+<h3 id="闭包代码举例"><a href="#闭包代码举例" class="headerlink" title="闭包代码举例"></a>闭包代码举例</h3><p>代码举例：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>打印结果：</p>
+<pre><code>10</code></pre><p>上方代码中，函数 fn2 的作用域 访问了 fn1 中的局部变量，那么，此时在 fn1 中就产生了闭包，fn1 称之为闭包函数。</p>
+<h3 id="在-chrome-浏览器控制台中，调试闭包"><a href="#在-chrome-浏览器控制台中，调试闭包" class="headerlink" title="在 chrome 浏览器控制台中，调试闭包"></a>在 chrome 浏览器控制台中，调试闭包</h3><p>上面的代码中，要怎么验证，确实产生了闭包呢？我们可以在 chrome 浏览器的控制台中设置断点，当代码执行到 <code>console.log(a)</code>这一行的时候，如下图所示：</p>
+<p><img src="http://img.smyhvae.com/20200703_2055.png" alt=""></p>
+<p>上图中， Local 指的是局部作用域，Global 指的是 全局作用域；而 Closure 则是<strong>闭包</strong>，fn1 是一个闭包函数。</p>
+<h2 id="闭包的作用：延伸变量的作用范围"><a href="#闭包的作用：延伸变量的作用范围" class="headerlink" title="闭包的作用：延伸变量的作用范围"></a>闭包的作用：延伸变量的作用范围</h2><p>我们来看看下面这段闭包的代码：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> fn2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 执行 fn1() 之后，会得到一个返回值。foo 代表的就是 fn2 函数</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>上方代码中，foo 代表的就是整个 fn2 函数。当执行了 <code>foo()</code> 语句之后（相当于执行了 ），fn1 函数内就产生了闭包。</p>
+<p>一般来说，在 fn1 函数执行完毕后，它里面的变量 a 会立即销毁。但此时由于产生了闭包，所以 <strong>fn1 函数中的变量 a 不会立即销毁，因为 fn2 函数还要继续调用变量 a</strong>。只有等所有函数把变量 a 调用完了，变量 a 才会销毁。</p>
+<p>而且，可以看出， 在执行 <code>foo()</code>语句之后，竟然能够打印出 <code>20</code>，这就完美通过闭包实现了：全局作用局成功访问到了局部作用域中的变量 a。</p>
+<p>因此，我们可以看出，闭包的主要作用就是：延伸了变量的作用范围。</p>
+<p>上面的代码也可以简写成：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 执行 fn1() 之后，会得到一个返回值。这个返回值是函数</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
             </div>
             <hr/>
 
@@ -507,7 +588,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://Quixn.github.io/Quixn.github.io/404.html">https://Quixn.github.io/Quixn.github.io/404.html</a>
+                    <a href="https://Quixn.github.io/Quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/">https://Quixn.github.io/Quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -544,7 +625,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                                    <span class="chip bg-color">前端开发</span>
+                                </a>
+                            
+                                <a href="/Quixn.github.io/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -978,34 +1067,60 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/Quixn.github.io/404.html">
+                <a href="/Quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="404">
+                        <img src="/Quixn.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="闭包">
                         
-                        <span class="card-title">404</span>
+                        <span class="card-title">闭包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            闭包的引入我们知道，变量根据作用域的不同分为两种：全局变量和局部变量。
+
+函数内部可以访问全局变量和局部变量。
+
+函数外部只能访问全局变量，不能访问局部变量。
+
+当函数执行完毕，本作用域内的局部变量会销毁。
+
+
+比如下面这样的代码：
+fun
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Quixn
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                    前端开发
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">前端开发</span>
+                    </a>
+                    
+                    <a href="/Quixn.github.io/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1013,37 +1128,76 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Quixn.github.io/404.html">
+                <a href="/Quixn.github.io/2020/06/01/8-2020-06-01-shu-zu-de-chang-jian-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="404">
+                        <img src="/Quixn.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="数组的常见方法">
                         
-                        <span class="card-title">404</span>
+                        <span class="card-title">数组的常见方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            数组的方法清单数组的类型相关
+
+
+方法
+描述
+备注
+
+
+
+Array.isArray()
+判断是否为数组
+
+
+
+toString()
+将数组转换为字符串
+
+
+
+Array.from(arrayLike)
+将伪数组转化为真数组
+
+
+
+Arra
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Quixn
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                    前端开发
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">前端开发</span>
+                    </a>
+                    
+                    <a href="/Quixn.github.io/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

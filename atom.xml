@@ -6,7 +6,7 @@
   <link href="/Quixn.github.io/atom.xml" rel="self"/>
   
   <link href="https://quixn.github.io/"/>
-  <updated>2021-03-09T07:57:48.561Z</updated>
+  <updated>2021-03-10T02:26:38.109Z</updated>
   <id>https://quixn.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>闭包</title>
+    <link href="https://quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/"/>
+    <id>https://quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/</id>
+    <published>2020-06-02T09:00:00.000Z</published>
+    <updated>2021-03-10T02:26:38.109Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;闭包的引入&quot;&gt;&lt;a href=&quot;#闭包的引入&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="JavaScript" scheme="https://Quixn.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>数组的常见方法</title>
