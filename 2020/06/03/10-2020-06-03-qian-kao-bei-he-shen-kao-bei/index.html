@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="高阶函数, Quixn，github">
+    <meta name="keywords" content="浅拷贝和深拷贝, Quixn，github">
     <meta name="description" content="月傍星，星伴月，繁星闪闪，月痴迷；花醉蝶，蝶恋花，蝶舞翩翩，花嫣然。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>高阶函数 | Quixn</title>
+    <title>浅拷贝和深拷贝 | Quixn</title>
     <link rel="icon" type="image/png" href="/Quixn.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/Quixn.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/Quixn.github.io/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">高阶函数</h1>
+                    <h1 class="description center-align post-title">浅拷贝和深拷贝</h1>
                 </div>
             </div>
         </div>
@@ -468,7 +468,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-25
+                    2020-06-03
                 </div>
                 
 
@@ -477,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    218
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -499,30 +499,148 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h3 id="高阶函数的概念"><a href="#高阶函数的概念" class="headerlink" title="高阶函数的概念"></a>高阶函数的概念</h3><p>当 函数 A 接收函数 B 作为<strong>参数</strong>，或者把函数 C 作为<strong>返回值</strong>输出时，我们称 函数 A 为高阶函数。</p>
-<p>通俗来说，高阶函数是 对其他函数进行操作 的函数。</p>
-<h3 id="高阶函数举例1：把其他函数作为参数"><a href="#高阶函数举例1：把其他函数作为参数" class="headerlink" title="高阶函数举例1：把其他函数作为参数"></a>高阶函数举例1：把其他函数作为参数</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 执行完上面的 console.log() 语句之后，再执行下面这个 callback 函数。也就是说，这个 callback 函数是最后执行的。</span>
-    callback <span class="token operator">&amp;&amp;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li><p>浅拷贝：只拷贝最外面一层的数据；更深层次的对象，只拷贝引用。</p>
+</li>
+<li><p>深拷贝：拷贝多层数据；每一层级别的数据都会拷贝。</p>
+</li>
+</ul>
+<p><strong>总结</strong>：</p>
+<p>拷贝引用的时候，是属于<strong>传址</strong>，而非<strong>传值</strong>。关于传值和传址的区别，是很基础的内容。</p>
+<p>深拷贝会把对象里<strong>所有的数据</strong>重新复制到新的内存空间，是最彻底的拷贝。</p>
+<h2 id="浅拷贝的实现方式"><a href="#浅拷贝的实现方式" class="headerlink" title="浅拷贝的实现方式"></a>浅拷贝的实现方式</h2><h3 id="用-for-in-实现浅拷贝（比较繁琐）"><a href="#用-for-in-实现浅拷贝（比较繁琐）" class="headerlink" title="用 for in 实现浅拷贝（比较繁琐）"></a>用 for in 实现浅拷贝（比较繁琐）</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+    info<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        desc<span class="token punctuation">:</span> <span class="token string">'很厉害'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//  用 for in 将 obj1 的值拷贝给 obj2</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> obj1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    obj2<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> obj1<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token function">fn1</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我是最后执行的函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj2:'</span> <span class="token operator">+</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+obj1<span class="token punctuation">.</span>info<span class="token punctuation">.</span>desc <span class="token operator">=</span> <span class="token string">'永不止步'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 当修改 obj1 的第二层数据时，obj2的值也会被改变。所以  for in 是浅拷贝</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj2:'</span> <span class="token operator">+</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>上方代码中，用 for in 做拷贝时，只能做到浅拷贝。也就是说，在 obj2 中， name 和 age 这两个属性会单独存放在新的内存地址中，和 obj1 没有关系。但是，<code>obj2.info</code> 属性，跟 <code>obj1.info</code>属性，<strong>它俩指向的是同一个堆内存地址</strong>。所以，当我修改 <code>obj1.info</code> 里的值之后，<code>obj2.info</code>的值也会被修改。</p>
+<p>打印结果如下：</p>
+<pre><code>obj2:{&quot;name&quot;:&quot;qianguyihao&quot;,&quot;age&quot;:28,&quot;info&quot;:{&quot;desc&quot;:&quot;很厉害&quot;}}
+
+obj2:{&quot;name&quot;:&quot;qianguyihao&quot;,&quot;age&quot;:28,&quot;info&quot;:{&quot;desc&quot;:&quot;永不止步&quot;}}</code></pre><h3 id="用-Object-assgin-实现浅拷贝（推荐的方式）"><a href="#用-Object-assgin-实现浅拷贝（推荐的方式）" class="headerlink" title="用 Object.assgin() 实现浅拷贝（推荐的方式）"></a>用 Object.assgin() 实现浅拷贝（推荐的方式）</h3><p>上面的 for in 方法做浅拷贝过于繁琐。ES6 给我们提供了新的语法糖，通过 <code>Object.assgin()</code> 可以实现<strong>浅拷贝</strong>。</p>
+<p><code>Object.assgin()</code> 在日常开发中，使用得相当频繁，非掌握不可。</p>
+<p><strong>语法</strong>：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 语法1</span>
+obj2 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assgin</span><span class="token punctuation">(</span>obj2<span class="token punctuation">,</span> obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 语法2</span>
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>目标对象<span class="token punctuation">,</span> 源对象<span class="token number">1</span><span class="token punctuation">,</span> 源对象<span class="token number">2</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>解释</strong>：将<code>obj1</code> 拷贝给 <code>obj2</code>。执行完毕后，obj2 的值会被更新。</p>
+<p><strong>作用</strong>：将 obj1 的值追加到 obj2 中。如果对象里的属性名相同，会被覆盖。</p>
+<p>从语法2中可以看出，Object.assign() 可以将多个“源对象”拷贝到“目标对象”中。</p>
+<p><strong>例 1</strong>：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+    info<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        desc<span class="token punctuation">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 浅拷贝：把 obj1 拷贝给 obj2。如果 obj1 只有一层数据，那么，obj1 和 obj2 则互不影响</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj2:'</span> <span class="token operator">+</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+obj1<span class="token punctuation">.</span>info<span class="token punctuation">.</span>desc <span class="token operator">=</span> <span class="token string">'永不止步'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 由于 Object.assign() 只是浅拷贝，所以当修改 obj1 的第二层数据时，obj2 对应的值也会被改变。</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj2:'</span> <span class="token operator">+</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>代码解释：由于 Object.assign() 只是浅拷贝，所以在当前这个案例中， obj2 中的 name 属性和 age 属性是单独存放在新的堆内存地址中的，和 obj1 没有关系；但是，<code>obj2.info</code> 属性，跟 <code>obj1.info</code>属性，<strong>它俩指向的是同一个堆内存地址</strong>。所以，当我修改 <code>obj1.info</code> 里的值之后，<code>obj2.info</code>的值也会被修改。</p>
 <p>打印结果：</p>
-<pre><code>30
-我是最后执行的函数</code></pre><h3 id="高阶函数举例2：把其他区函数作为返回值"><a href="#高阶函数举例2：把其他区函数作为返回值" class="headerlink" title="高阶函数举例2：把其他区函数作为返回值"></a>高阶函数举例2：把其他区函数作为返回值</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<pre><code>obj2:{&quot;name&quot;:&quot;qianguyihao&quot;,&quot;age&quot;:28,&quot;info&quot;:{&quot;desc&quot;:&quot;hello&quot;}}
 
-    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+obj2:{&quot;name&quot;:&quot;qianguyihao&quot;,&quot;age&quot;:28,&quot;info&quot;:{&quot;desc&quot;:&quot;永不止步&quot;}}</code></pre><p><strong>例 2</strong>：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> myObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 执行 fn1() 之后，会得到一个返回值。这个返回值是函数</span>
-<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token comment" spellcheck="true">// 【写法1】浅拷贝：把 myObj 拷贝给 obj1</span>
+<span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>obj1<span class="token punctuation">,</span> myObj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 【写法2】浅拷贝：把 myObj 拷贝给 obj2</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> myObj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 【写法3】浅拷贝：把 myObj 拷贝给 obj31。注意，这里的 obj31 和 obj32 其实是等价的，他们指向了同一个内存地址</span>
+<span class="token keyword">const</span> obj31 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> obj32 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>obj31<span class="token punctuation">,</span> myObj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面这三种写法，是等价的。所以，当我们需要将对象 A 复制（拷贝）给对象 B，不要直接使用 <code>B = A</code>，而是要使用 Object.assign(B, A)。</p>
+<p><strong>例 3</strong>：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">26</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span> city<span class="token punctuation">:</span> <span class="token string">'shenzhen'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">28</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>obj3<span class="token punctuation">,</span> obj1<span class="token punctuation">,</span> obj2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 将 obj1、obj2的内容赋值给 obj3</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {name: "qianguyihao", age: 28, city: "shenzhen"}</span></code></pre>
+<p>上面的代码，可以理解成：将多个对象（obj1和obj2）合并成一个对象 obj3。</p>
+<p><strong>例4</strong>：【重要】</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+    desc<span class="token punctuation">:</span> <span class="token string">'hello world'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'许嵩'</span><span class="token punctuation">,</span>
+    sex<span class="token punctuation">:</span> <span class="token string">'男'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 浅拷贝：把 obj1 赋值给 obj2。这一行，是关键代码。这行代码的返回值也是 obj2</span>
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>obj2<span class="token punctuation">,</span> obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>打印结果：</p>
+<pre><code>{&quot;name&quot;:&quot;qianguyihao&quot;,&quot;sex&quot;:&quot;男&quot;,&quot;age&quot;:28,&quot;desc&quot;:&quot;hello world&quot;}</code></pre><p>注意，<strong>例 4 在实际开发中，会经常遇到，一定要掌握</strong>。它的作用是：将 obj1 的值追加到 obj2 中。如果两个对象里的属性名相同，则 obj12 中的值会被 obj2 中的值覆盖。</p>
+<h2 id="深拷贝的实现方式"><a href="#深拷贝的实现方式" class="headerlink" title="深拷贝的实现方式"></a>深拷贝的实现方式</h2><p>深拷贝其实就是将浅拷贝进行递归。</p>
+<h3 id="用-for-in-递归实现深拷贝"><a href="#用-for-in-递归实现深拷贝" class="headerlink" title="用 for in 递归实现深拷贝"></a>用 for in 递归实现深拷贝</h3><p>代码实现：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+    info<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        desc<span class="token punctuation">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    color<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'red'</span><span class="token punctuation">,</span> <span class="token string">'blue'</span><span class="token punctuation">,</span> <span class="token string">'green'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">deepCopy</span><span class="token punctuation">(</span>obj2<span class="token punctuation">,</span> obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+obj1<span class="token punctuation">.</span>info<span class="token punctuation">.</span>desc <span class="token operator">=</span> <span class="token string">'github'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 方法：深拷贝</span>
+<span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span>newObj<span class="token punctuation">,</span> oldObj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> oldObj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 获取属性值 oldObj[key]</span>
+        <span class="token keyword">let</span> item <span class="token operator">=</span> oldObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 判断这个值是否是数组</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token keyword">instanceof</span> <span class="token class-name">Array</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            newObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token function">deepCopy</span><span class="token punctuation">(</span>newObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 判断这个值是否是对象</span>
+            newObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token function">deepCopy</span><span class="token punctuation">(</span>newObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 简单数据类型，直接赋值</span>
+            newObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -548,7 +666,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://Quixn.github.io/Quixn.github.io/2020/05/25/7-2020-05-25-gao-jie-han-shu/">https://Quixn.github.io/Quixn.github.io/2020/05/25/7-2020-05-25-gao-jie-han-shu/</a>
+                    <a href="https://Quixn.github.io/Quixn.github.io/2020/06/03/10-2020-06-03-qian-kao-bei-he-shen-kao-bei/">https://Quixn.github.io/Quixn.github.io/2020/06/03/10-2020-06-03-qian-kao-bei-he-shen-kao-bei/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1022,53 +1140,38 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/Quixn.github.io/2020/06/01/8-2020-06-01-shu-zu-de-chang-jian-fang-fa/">
+                <a href="/Quixn.github.io/2020/06/03/10-2020-06-03-qian-kao-bei-he-shen-kao-bei/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="数组的常见方法">
+                        <img src="/Quixn.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="浅拷贝和深拷贝">
                         
-                        <span class="card-title">数组的常见方法</span>
+                        <span class="card-title">浅拷贝和深拷贝</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数组的方法清单数组的类型相关
+                            概念
+浅拷贝：只拷贝最外面一层的数据；更深层次的对象，只拷贝引用。
+
+深拷贝：拷贝多层数据；每一层级别的数据都会拷贝。
 
 
-方法
-描述
-备注
-
-
-
-Array.isArray()
-判断是否为数组
-
-
-
-toString()
-将数组转换为字符串
-
-
-
-Array.from(arrayLike)
-将伪数组转化为真数组
-
-
-
-Arra
+总结：
+拷贝引用的时候，是属于传址，而非传值。关于传值和传址的区别，是很基础的内容。
+深拷贝会把对象里所有的数据重新
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1081,6 +1184,7 @@ Arra
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1103,25 +1207,34 @@ Arra
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Quixn.github.io/2020/05/24/6-2020-05-24-call-apply-he-bind/">
+                <a href="/Quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/">
                     <div class="card-image">
                         
                         
-                        <img src="/Quixn.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="call、apply 和 bind">
+                        <img src="/Quixn.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="闭包">
                         
-                        <span class="card-title">call、apply 和 bind</span>
+                        <span class="card-title">闭包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言JS 专门为我们提供了一些方法来改变函数内部的 this 指向。常见的方法有 call()、apply()、bind() 方法。
-call() 方法call() 方法的作用call() 方法的作用：可以调用一个函数，与此同时，它还可以改
+                            闭包的引入我们知道，变量根据作用域的不同分为两种：全局变量和局部变量。
+
+函数内部可以访问全局变量和局部变量。
+
+函数外部只能访问全局变量，不能访问局部变量。
+
+当函数执行完毕，本作用域内的局部变量会销毁。
+
+
+比如下面这样的代码：
+fun
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-02
                             </span>
                         <span class="publish-author">
                             
