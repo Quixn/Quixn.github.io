@@ -46,6 +46,36 @@
   </entry>
   
   <entry>
+    <title>Vue性能优化</title>
+    <link href="https://quixn.github.io/2020/06/03/11-2020-06-05-vue-xing-neng-you-hua/"/>
+    <id>https://quixn.github.io/2020/06/03/11-2020-06-05-vue-xing-neng-you-hua/</id>
+    <published>2020-06-03T09:00:00.000Z</published>
+    <updated>2021-03-18T03:01:17.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今天在逛社区时，遇到一个有意思的东西。如何进行Vue的性能优化？所以，想做一篇总结，记录一下，谈谈各种方案。&lt;/p&gt;
+&lt;p&gt;Vue
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Vue" scheme="https://Quixn.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>闭包</title>
     <link href="https://quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/"/>
     <id>https://quixn.github.io/2020/06/02/9-2020-06-02-bi-bao/</id>
@@ -186,9 +216,9 @@
     
       <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
-      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
+    
+      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
     
   </entry>
   
@@ -217,9 +247,9 @@
     
       <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
-      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
+    
+      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
     
   </entry>
   
@@ -248,9 +278,9 @@
     
       <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
-      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
-    
       <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
+    
+      <category term="HTML" scheme="https://Quixn.github.io/tags/HTML/"/>
     
   </entry>
   
@@ -280,9 +310,9 @@
     
       <category term="前端开发" scheme="https://Quixn.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
-      <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
-    
       <category term="HTML5" scheme="https://Quixn.github.io/tags/HTML5/"/>
+    
+      <category term="CSS" scheme="https://Quixn.github.io/tags/CSS/"/>
     
   </entry>
   
