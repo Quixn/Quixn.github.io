@@ -29,7 +29,7 @@
 
     <script src="/Quixn.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/Quixn.github.io/atom.xml" title="Quixn" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/Quixn.github.io/atom.xml" title="Quixn" type="application/atom+xml">
 <link rel="stylesheet" href="/Quixn.github.io/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -510,42 +510,42 @@
   <span class="token operator">&lt;</span>li
     v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"user in activeUsers"</span>
     <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"user.id"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span> user<span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> user<span class="token punctuation">.</span>name <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
-computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  activeUsers<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>users<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+computed<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  activeUsers<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>users<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> user<span class="token punctuation">.</span>isActive
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p><strong>不推荐：</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>ul<span class="token operator">></span>
   <span class="token operator">&lt;</span>li
     v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"user in users"</span>
     v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"user.isActive"</span>
     <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"user.id"</span><span class="token operator">></span>
-    <span class="token punctuation">{</span><span class="token punctuation">{</span> user<span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> user<span class="token punctuation">.</span>name <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span></code></pre>
 <h3 id="1-4、长列表性能优化"><a href="#1-4、长列表性能优化" class="headerlink" title="1.4、长列表性能优化"></a>1.4、长列表性能优化</h3><p>Vue 会通过 <strong>Object.defineProperty</strong> 对数据进行劫持，来实现视图响应数据的变化，然而有些时候我们的组件就是纯粹的数据展示，不会有任何改变，我们就不需要 Vue 来劫持我们的数据，在大量数据展示的情况下，这能够很明显的减少组件初始化的时间，那如何禁止 Vue 劫持我们的数据呢？可以通过 <strong>Object.freeze</strong> 方法来冻结一个对象，一旦被冻结的对象就再也不能被修改了。</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-    users<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    users<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"/api/users"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>users <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span></code></pre>
 <h3 id="1-5、事件的销毁"><a href="#1-5、事件的销毁" class="headerlink" title="1.5、事件的销毁"></a>1.5、事件的销毁</h3><p>Vue 组件销毁时，会自动清理它与其它实例的连接，解绑它的全部指令及事件监听器，但是仅限于组件本身的事件。如果在 js 内使用 <strong>addEventListene</strong> 等方式是不会自动销毁的，我们需要在组件销毁时手动移除这些事件的监听，以免造成内存泄露，如：</p>
-<pre class=" language-js"><code class="language-js"><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>click<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>click<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <h3 id="1-6、图片资源懒加载"><a href="#1-6、图片资源懒加载" class="headerlink" title="1.6、图片资源懒加载"></a>1.6、图片资源懒加载</h3><p>对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样对于页面加载性能上会有很大的提升，也提高了用户体验。我们在项目中使用 Vue 的 <strong>vue-lazyload</strong> 插件：</p>
 <p>（1）安装插件</p>
 <pre class=" language-js"><code class="language-js">npm install vue<span class="token operator">-</span>lazyload <span class="token operator">--</span>save<span class="token operator">-</span>dev</code></pre>
@@ -554,42 +554,42 @@ computed<span class="token punctuation">:</span> <span class="token punctuation"
 <p>然后再 vue 中直接使用</p>
 <pre class=" language-js"><code class="language-js">Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueLazyload<span class="token punctuation">)</span></code></pre>
 <p>或者添加自定义选项</p>
-<pre class=" language-js"><code class="language-js">Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueLazyload<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js">Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueLazyload<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   preLoad<span class="token punctuation">:</span> <span class="token number">1.3</span><span class="token punctuation">,</span>
   error<span class="token punctuation">:</span> <span class="token string">'dist/error.png'</span><span class="token punctuation">,</span>
   loading<span class="token punctuation">:</span> <span class="token string">'dist/loading.gif'</span><span class="token punctuation">,</span>
   attempt<span class="token punctuation">:</span> <span class="token number">1</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span></code></pre>
 <p>（3）在 vue 文件中将 img 标签的 src 属性直接改为 v-lazy ，从而将图片显示方式更改为懒加载显示：</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>img v<span class="token operator">-</span>lazy<span class="token operator">=</span><span class="token string">"/static/img/1.png"</span><span class="token operator">></span></code></pre>
 <p>以上为 vue-lazyload 插件的简单使用，如果要看插件的更多参数选项，可以查看 vue-lazyload 的 github 地址。</p>
 <h3 id="1-7、路由懒加载"><a href="#1-7、路由懒加载" class="headerlink" title="1.7、路由懒加载"></a>1.7、路由懒加载</h3><p>Vue 是单页面应用，可能会有很多的路由引入 ，这样使用 webpcak 打包后的文件很大，当进入首页时，加载的资源过多，页面会出现白屏的情况，不利于用户体验。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应的组件，这样就更加高效了。这样会大大提高首屏显示的速度，但是可能其他的页面的速度就会降下来。</p>
 <p>路由懒加载：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> Foo <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./Foo.vue'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">'/foo'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Foo <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> path<span class="token punctuation">:</span> <span class="token string">'/foo'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Foo <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span></code></pre>
 <h3 id="1-8、第三方插件的按需引入"><a href="#1-8、第三方插件的按需引入" class="headerlink" title="1.8、第三方插件的按需引入"></a>1.8、第三方插件的按需引入</h3><p>我们在项目中经常会需要引入第三方插件，如果我们直接引入整个插件，会导致项目的体积太大，我们可以借助 <strong>babel-plugin-component</strong> ，然后可以只引入需要的组件，以达到减小项目体积的目的。以下为项目中引入 <strong>element-ui</strong> 组件库为例：</p>
 <p>（1）首先，安装 babel-plugin-component ：</p>
 <pre class=" language-js"><code class="language-js">npm install babel<span class="token operator">-</span>plugin<span class="token operator">-</span>component <span class="token operator">-</span>D</code></pre>
 <p>（2）然后，将 .babelrc 修改为：</p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
-  <span class="token string">"presets"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"es2015"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"modules"</span><span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token string">"presets"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"es2015"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token string">"modules"</span><span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token string">"plugins"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">[</span>
       <span class="token string">"component"</span><span class="token punctuation">,</span>
-      <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token string">"libraryName"</span><span class="token punctuation">:</span> <span class="token string">"element-ui"</span><span class="token punctuation">,</span>
         <span class="token string">"styleLibraryName"</span><span class="token punctuation">:</span> <span class="token string">"theme-chalk"</span>
-      <span class="token punctuation">}</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token punctuation">]</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>（3）在 main.js 中引入部分组件：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Select <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'element-ui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Button<span class="token punctuation">,</span> Select <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'element-ui'</span><span class="token punctuation">;</span>
 
 Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Button<span class="token punctuation">)</span>
 Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Select<span class="token punctuation">)</span></code></pre>
@@ -614,26 +614,26 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <p><strong>（1）首先，安装 image-webpack-loader ：</strong></p>
 <pre class=" language-js"><code class="language-js">npm install image<span class="token operator">-</span>webpack<span class="token operator">-</span>loader <span class="token operator">--</span>save<span class="token operator">-</span>dev</code></pre>
 <p><strong>（2）然后，在 webpack.base.conf.js 中进行配置：</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   test<span class="token punctuation">:</span> <span class="token regex">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span><span class="token punctuation">,</span>
   use<span class="token punctuation">:</span><span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     loader<span class="token punctuation">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
-    options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    options<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       limit<span class="token punctuation">:</span> <span class="token number">10000</span><span class="token punctuation">,</span>
       name<span class="token punctuation">:</span> utils<span class="token punctuation">.</span><span class="token function">assetsPath</span><span class="token punctuation">(</span><span class="token string">'img/[name].[hash:7].[ext]'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       loader<span class="token punctuation">:</span> <span class="token string">'image-webpack-loader'</span><span class="token punctuation">,</span>
-      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      options<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         bypassOnDebug<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <h3 id="2-2、减少-ES6-转为-ES5-的冗余代码"><a href="#2-2、减少-ES6-转为-ES5-的冗余代码" class="headerlink" title="2.2、减少 ES6 转为 ES5 的冗余代码"></a>2.2、减少 ES6 转为 ES5 的冗余代码</h3><p>Babel 插件会在将 ES6 代码转换成 ES5 代码时会注入一些辅助函数，例如下面的 ES6 代码：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">HelloWebpack</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">HelloWebpack</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">...</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>这段代码再被转换成能正常运行的 ES5 代码时需要以下两个辅助函数：</p>
 <pre class=" language-js"><code class="language-js">babel<span class="token operator">-</span>runtime<span class="token operator">/</span>helpers<span class="token operator">/</span>createClass  <span class="token comment" spellcheck="true">// 用于实现 class 语法</span>
 babel<span class="token operator">-</span>runtime<span class="token operator">/</span>helpers<span class="token operator">/</span>inherits  <span class="token comment" spellcheck="true">// 用于实现 extends 语法</span></code></pre>
@@ -653,9 +653,9 @@ babel<span class="token operator">-</span>runtime<span class="token operator">/<
 </ul>
 <p>所以我们需要将多个页面的公共代码抽离成单独的文件，来优化以上问题 。Webpack 内置了专门用于提取多个Chunk 中的公共部分的插件 <strong>CommonsChunkPlugin</strong>，我们在项目中 CommonsChunkPlugin 的配置如下：</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 所有在 package.json 里面依赖的包，都会被打包进 vendor.js 这个文件中。</span>
-<span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   name<span class="token punctuation">:</span> <span class="token string">'vendor'</span><span class="token punctuation">,</span>
-  minChunks<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> count<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  minChunks<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> count<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>
       module<span class="token punctuation">.</span>resource <span class="token operator">&amp;&amp;</span>
       <span class="token regex">/\.js$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span>resource<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
@@ -663,13 +663,13 @@ babel<span class="token operator">-</span>runtime<span class="token operator">/<
         path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../node_modules'</span><span class="token punctuation">)</span>
       <span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">0</span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token comment" spellcheck="true">// 抽取出代码模块的映射关系</span>
-<span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   name<span class="token punctuation">:</span> <span class="token string">'manifest'</span><span class="token punctuation">,</span>
   chunks<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vendor'</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span></code></pre>
 <h3 id="2-4、模板预编译"><a href="#2-4、模板预编译" class="headerlink" title="2.4、模板预编译"></a>2.4、模板预编译</h3><p>当使用 DOM 内模板或 JavaScript 内的字符串模板时，模板会在运行时被编译为渲染函数。通常情况下这个过程已经足够快了，但对性能敏感的应用还是最好避免这种用法。</p>
 <p>预编译模板最简单的方式就是使用单文件组件——相关的构建设置会自动把预编译处理好，所以构建好的代码已经包含了编译出来的渲染函数而不是原始的模板字符串。</p>
 <p>如果你使用 webpack，并且喜欢分离 JavaScript 和模板文件，你可以使用 <strong>vue-template-loader</strong>，它也可以在构建过程中把模板文件转换成为 JavaScript 渲染函数。</p>
@@ -699,10 +699,10 @@ babel<span class="token operator">-</span>runtime<span class="token operator">/<
 </ul>
 <h3 id="2-7、构建结果输出分析"><a href="#2-7、构建结果输出分析" class="headerlink" title="2.7、构建结果输出分析"></a>2.7、构建结果输出分析</h3><p>Webpack 输出的代码可读性非常差而且文件非常大，让我们非常头疼。为了更简单、直观地分析输出结果，社区中出现了许多可视化分析工具。这些工具以图形的方式将结果更直观地展示出来，让我们快速了解问题所在。接下来讲解我们在 Vue 项目中用到的分析工具：<strong>webpack-bundle-analyzer</strong> 。</p>
 <p>我们在项目中 <strong>webpack.prod.conf.js</strong> 进行配置：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>build<span class="token punctuation">.</span>bundleAnalyzerReport<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>build<span class="token punctuation">.</span>bundleAnalyzerReport<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> BundleAnalyzerPlugin <span class="token operator">=</span>   <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>BundleAnalyzerPlugin<span class="token punctuation">;</span>
   webpackConfig<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BundleAnalyzerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>执行 <strong>$ npm run build --report</strong> 后生成分析报告。</p>
 <h3 id="2-8、Vue-项目的编译优化"><a href="#2-8、Vue-项目的编译优化" class="headerlink" title="2.8、Vue 项目的编译优化"></a>2.8、Vue 项目的编译优化</h3><p>如果你的 Vue 项目使用 Webpack 编译，需要你喝一杯咖啡的时间，那么也许你需要对项目的 Webpack 配置进行优化，提高 Webpack 的构建效率。</p>
 <h2 id="三、基础的-Web-技术优化"><a href="#三、基础的-Web-技术优化" class="headerlink" title="三、基础的 Web 技术优化"></a>三、基础的 Web 技术优化</h2><h3 id="3-1、开启-gzip-压缩"><a href="#3-1、开启-gzip-压缩" class="headerlink" title="3.1、开启 gzip 压缩"></a>3.1、开启 gzip 压缩</h3><p>gzip 是 GNUzip 的缩写，最早用于 UNIX 系统的文件压缩。HTTP 协议上的 gzip 编码是一种用来改进 web 应用程序性能的技术，web 服务器和客户端（浏览器）必须共同支持 gzip。目前主流的浏览器，Chrome，firefox，IE等都支持该协议。常见的服务器如 Apache，Nginx，IIS 同样支持，gzip 压缩效率非常高，通常可以达到 70% 的压缩率，也就是说，如果你的网页有 30K，压缩之后就变成了 9K 左右。</p>

@@ -29,7 +29,7 @@
 
     <script src="/Quixn.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/Quixn.github.io/atom.xml" title="Quixn" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/Quixn.github.io/atom.xml" title="Quixn" type="application/atom+xml">
 <link rel="stylesheet" href="/Quixn.github.io/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -489,29 +489,29 @@
 <pre class=" language-js"><code class="language-js">fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>想要将<span class="token keyword">this</span>指向哪里<span class="token punctuation">,</span> 函数实参<span class="token number">1</span><span class="token punctuation">,</span> 函数实参<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>备注：第一个参数中，如果不需要改变 this 指向，则传 null。</p>
 <h3 id="call-方法举例"><a href="#call-方法举例" class="headerlink" title="call() 方法举例"></a>call() 方法举例</h3><p><strong>举例 1</strong>、通过 call() 调用函数：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     nickName<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
     age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// this的指向并没有被改变，此时相当于 fn1();</span></code></pre>
 <p>上方代码的打印结果：</p>
 <pre><code>window
 undefined</code></pre><p>上面的代码，跟普通的函数调用 <code>fn1()</code> 没有区别。</p>
 <p><strong>举例 2</strong>、通过 call() 改变 this 指向：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     nickName<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
     age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickName<span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj1<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 先将 this 指向 obj1，然后执行 fn1() 函数</span></code></pre>
 <p>上方代码的打印结果：</p>
@@ -519,38 +519,38 @@ fn1<span class="token punctuation">.</span><span class="token function">call</sp
 qianguyihao
 6</code></pre><p><strong>举例 3</strong>、通过 call() 实现继承：</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 给 Father 增加 name 和 age 属性</span>
-<span class="token keyword">function</span> <span class="token function">Father</span><span class="token punctuation">(</span>myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">Father</span><span class="token punctuation">(</span>myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> myName<span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> myAge<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token keyword">function</span> <span class="token function">Son</span><span class="token punctuation">(</span>myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">Son</span><span class="token punctuation">(</span>myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 【下面这一行，重要代码】</span>
     <span class="token comment" spellcheck="true">// 通过这一步，将 father 里面的 this 修改为 Son 里面的 this；另外，给 Son 加上相应的参数，让 Son 自动拥有 Father 里的属性。最终实现继承</span>
     Father<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> myName<span class="token punctuation">,</span> myAge<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> son1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Son</span><span class="token punctuation">(</span><span class="token string">'千古壹号'</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>son1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>上方代码中，通过 call() 方法，让 Son 继承了 Father 里面的 name 和 age 属性。</p>
 <p>打印结果：</p>
-<pre><code>{&quot;myName&quot;:&quot;千古壹号&quot;,&quot;myAge&quot;:28}</code></pre><h2 id="apply-方法"><a href="#apply-方法" class="headerlink" title="apply() 方法"></a>apply() 方法</h2><h3 id="apply-方法的作用"><a href="#apply-方法的作用" class="headerlink" title="apply() 方法的作用"></a>apply() 方法的作用</h3><p>apply() 方法的作用：可以<strong>调用</strong>一个函数，与此同时，它还可以改变这个函数内部的 this 指向。这一点，和 call()类似。</p>
+<pre><code>&#123;&quot;myName&quot;:&quot;千古壹号&quot;,&quot;myAge&quot;:28&#125;</code></pre><h2 id="apply-方法"><a href="#apply-方法" class="headerlink" title="apply() 方法"></a>apply() 方法</h2><h3 id="apply-方法的作用"><a href="#apply-方法的作用" class="headerlink" title="apply() 方法的作用"></a>apply() 方法的作用</h3><p>apply() 方法的作用：可以<strong>调用</strong>一个函数，与此同时，它还可以改变这个函数内部的 this 指向。这一点，和 call()类似。</p>
 <p>apply() 方法的应用： 由于 apply()需要传递数组，所以它有一些巧妙应用，稍后看接下来的应用举例就知道了。</p>
 <p>语法：</p>
 <pre class=" language-js"><code class="language-js">fn1<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>想要将<span class="token keyword">this</span>指向哪里<span class="token punctuation">,</span> <span class="token punctuation">[</span>函数实参<span class="token number">1</span><span class="token punctuation">,</span> 函数实参<span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>备注：第一个参数中，如果不需要改变 this 指向，则传 null。</p>
 <p>到这里可以看出， call() 和 apply() 方法的作用是相同的。唯一的区别在于，apply() 里面传入的<strong>实参，必须是数组（或者维数组）</strong>。</p>
 <h3 id="apply-方法举例"><a href="#apply-方法举例" class="headerlink" title="apply() 方法举例"></a>apply() 方法举例</h3><p><strong>举例</strong>、通过 apply() 改变 this 指向：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     nickName<span class="token punctuation">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span>
     age<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickName<span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 fn1<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>obj1<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 先将 this 指向 obj1，然后执行 fn1() 函数</span></code></pre>
 <p>注意，上方代码中，call() 里面传实参时，需要以数组的形式。即便是传一个实参，也需要传数组。</p>

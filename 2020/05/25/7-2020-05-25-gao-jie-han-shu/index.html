@@ -29,7 +29,7 @@
 
     <script src="/Quixn.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/Quixn.github.io/atom.xml" title="Quixn" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/Quixn.github.io/atom.xml" title="Quixn" type="application/atom+xml">
 <link rel="stylesheet" href="/Quixn.github.io/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -484,25 +484,25 @@
             <div id="articleContent">
                 <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h3 id="高阶函数的概念"><a href="#高阶函数的概念" class="headerlink" title="高阶函数的概念"></a>高阶函数的概念</h3><p>当 函数 A 接收函数 B 作为<strong>参数</strong>，或者把函数 C 作为<strong>返回值</strong>输出时，我们称 函数 A 为高阶函数。</p>
 <p>通俗来说，高阶函数是 对其他函数进行操作 的函数。</p>
-<h3 id="高阶函数举例1：把其他函数作为参数"><a href="#高阶函数举例1：把其他函数作为参数" class="headerlink" title="高阶函数举例1：把其他函数作为参数"></a>高阶函数举例1：把其他函数作为参数</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h3 id="高阶函数举例1：把其他函数作为参数"><a href="#高阶函数举例1：把其他函数作为参数" class="headerlink" title="高阶函数举例1：把其他函数作为参数"></a>高阶函数举例1：把其他函数作为参数</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 执行完上面的 console.log() 语句之后，再执行下面这个 callback 函数。也就是说，这个 callback 函数是最后执行的。</span>
     callback <span class="token operator">&amp;&amp;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token function">fn1</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">fn1</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我是最后执行的函数'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>打印结果：</p>
 <pre><code>30
-我是最后执行的函数</code></pre><h3 id="高阶函数举例2：把其他区函数作为返回值"><a href="#高阶函数举例2：把其他区函数作为返回值" class="headerlink" title="高阶函数举例2：把其他区函数作为返回值"></a>高阶函数举例2：把其他区函数作为返回值</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+我是最后执行的函数</code></pre><h3 id="高阶函数举例2：把其他区函数作为返回值"><a href="#高阶函数举例2：把其他区函数作为返回值" class="headerlink" title="高阶函数举例2：把其他区函数作为返回值"></a>高阶函数举例2：把其他区函数作为返回值</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 执行 fn1() 之后，会得到一个返回值。这个返回值是函数</span>
 <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
